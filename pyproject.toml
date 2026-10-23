@@ -1,0 +1,36 @@
+[project]
+name = "dash-ibge"
+version = "0.1.0"
+description = "Dashboard do Censo Demográfico do Brasil com a API de agregados do IBGE"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+  "streamlit>=1.40",
+  "polars>=1.17",
+  "numpy>=2.0",
+  "scikit-learn>=1.5",
+  "redis>=5.2",
+  "httpx>=0.27",
+  "python-dotenv>=1.0",
+  "plotly>=5.24",
+  "mcp>=2.3",
+]
+
+[project.optional-dependencies]
+spark = ["pyspark>=3.5"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+dash-ibge-mcp = "dash_ibge.mcp_server:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

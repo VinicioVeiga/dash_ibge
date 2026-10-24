@@ -3,6 +3,7 @@
   "framework": null,
   "services": {
     "web": {
+      "root": ".",
       "runtime": "container",
       "entrypoint": "Dockerfile.vercel"
     }

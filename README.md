@@ -27,6 +27,12 @@ streamlit run app.py
 
 Abra o endereço que o Streamlit mostrar, em geral `http://localhost:8501`.
 
+## Vercel
+
+O runtime Python do Vercel só carrega FastAPI, Flask ou Django, e por isso procura uma variável `app` em `app.py`. O Streamlit sobe o próprio servidor. O arquivo `Dockerfile.vercel` faz o Vercel publicar a aplicação como contêiner, escutando em `$PORT`.
+
+Depois do push na `main`, rode um novo deploy. Se o projeto ainda estiver com o preset Python nas configurações do Vercel, troque o Framework para Other e publique de novo.
+
 ## Redis
 
 O arquivo `docker-compose.yml` sobe o Redis 7.2 com licença BSD-3-Clause, a versão gratuita, sem módulos pagos. O aplicativo usa só `PING`, `GET` e `SETEX`.
